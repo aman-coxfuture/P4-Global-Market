@@ -1,0 +1,17 @@
+{
+  "menu": {
+    "loyalty": "Loyalty Program",
+    "accounts": "Accounts",
+    "funds": "Funds",
+    "social": "Social Trading",
+    "profile": "Profile",
+    "downloads": "Downloads",
+    "calendar": "Economic Calendar",
+    "calculator": "Trading Calculator",
+    "education": "Education",
+    "pamm": "PAMM",
+    "ib_dashboard": "IB Dashboard",
+    "ib_statistics": "IB Statistics",
+    "ib_marketing": "IB Marketing"
+  }
+}

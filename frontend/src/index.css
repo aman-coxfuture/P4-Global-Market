@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #8cc63f;
+  --color-primary-hover: #7abd30;
+  --color-action: #1e2b58;
+  --color-action-hover: #152042;
+  --color-action-border: #2a3c75;
+  --color-surface: #0B1121;
+  --color-surface-elevated: #1F2937;
+  --color-surface-card: #111827;
+}
+
 @layer base {
   :root {
     --brand-navy-dark: #070d19;
