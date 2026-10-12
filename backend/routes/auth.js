@@ -13,6 +13,16 @@ const rateLimit = require('express-rate-limit');
 
 const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 20, message: { success: false, error: 'Too many attempts' } });
 
+// Auth responses contain user/session state and must not be revalidated from
+// the browser cache. In particular, a cached /me response can produce a 304,
+// which Axios treats as a failed request during login.
+router.use((req, res, next) => {
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+  res.set('Pragma', 'no-cache');
+  res.set('Expires', '0');
+  next();
+});
+
 const signupSchema = z.object({
   firstName: z.string().min(1, 'First name required'),
   lastName: z.string().min(1, 'Last name required'),
@@ -28,6 +38,16 @@ const loginSchema = z.object({
 });
 
 const hashToken = (token) => crypto.createHash('sha256').update(token).digest('hex');
+
+const getPublicUser = async (user) => {
+  const publicUser = user.toObject();
+  delete publicUser.password;
+  delete publicUser.__v;
+  delete publicUser.loginAttempts;
+  delete publicUser.lockUntil;
+  const profile = await UserProfile.findOne({ userId: user.id }).select('-__v -_id -userId');
+  return { ...publicUser, profile };
+};
 
 const issueTokens = async (user, res, existingFamilyId = null) => {
   const accessToken = jwt.sign({ user: { id: user.id, roles: user.roles } }, env.JWT_SECRET, { expiresIn: '15m' });
@@ -93,7 +113,7 @@ router.post('/login', authLimiter, validate(loginSchema), async (req, res) => {
   await user.save();
 
   const accessToken = await issueTokens(user, res);
-  res.json({ success: true, data: { accessToken } });
+  res.json({ success: true, data: { accessToken, user: await getPublicUser(user) } });
 });
 
 router.post('/refresh', async (req, res) => {
@@ -138,8 +158,7 @@ router.post('/logout', async (req, res) => {
 router.get('/me', auth, async (req, res) => {
   const user = await User.findById(req.user.id).select('-password -__v -loginAttempts -lockUntil');
   if (!user) return res.status(404).json({ success: false, error: 'User not found' });
-  const profile = await UserProfile.findOne({ userId: user.id }).select('-__v -_id -userId');
-  res.json({ success: true, data: { ...user.toObject(), profile } });
+  res.json({ success: true, data: await getPublicUser(user) });
 });
 
 module.exports = router;

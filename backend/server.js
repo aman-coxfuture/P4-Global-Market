@@ -14,6 +14,18 @@ dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 const app = express();
 
+// Authentication/profile responses are always dynamic. Disable Express ETags
+// so conditional requests cannot turn /auth/me into a body-less 304 response.
+app.set('etag', false);
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api/v1/auth')) {
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    res.set('Pragma', 'no-cache');
+    res.set('Expires', '0');
+  }
+  next();
+});
+
 app.use(helmet());
 app.use(cookieParser());
 app.use(express.json());
