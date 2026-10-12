@@ -11,7 +11,7 @@ export default function Login() {
   const [loginSuccess, setLoginSuccess] = useState(false);
 
   const navigate = useNavigate();
-  const { login, user } = useAuthStore();
+  const { login } = useAuthStore();
   const [serverError, setServerError] = useState('');
 
   const {
@@ -29,13 +29,7 @@ export default function Login() {
     if (success) {
       setLoginSuccess(true);
       const currentUser = useAuthStore.getState().user;
-      setTimeout(() => {
-        if (currentUser?.roles?.includes('admin')) {
-          navigate('/admin');
-        } else {
-          navigate('/portal/loyalty');
-        }
-      }, 1000);
+      navigate(currentUser?.roles?.includes('admin') ? '/admin' : '/portal/loyalty', { replace: true });
     } else {
       setServerError(useAuthStore.getState().error);
     }
