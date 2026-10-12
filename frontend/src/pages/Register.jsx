@@ -5,8 +5,11 @@ import { useForm } from 'react-hook-form';
 import { Eye, EyeOff, CheckCircle2, ShieldCheck, ArrowRight, Check } from 'lucide-react';
 import CountrySelect from '../components/CountrySelect';
 import PhoneCountrySelect from '../components/PhoneCountrySelect';
+import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from '../components/ui/LanguageSwitcher';
 
 export default function Register() {
+  const { t } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
   const [showRepeatPassword, setShowRepeatPassword] = useState(false);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
@@ -81,15 +84,15 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f4f6f9] text-slate-800 flex flex-col justify-between relative overflow-hidden py-6 sm:py-8">
-      
+    <div className="min-h-screen bg-gradient-to-br from-[#050816] via-[#0b1b45] to-[#123b8c] text-slate-100 flex flex-col justify-between relative overflow-hidden py-6 sm:py-8">
+
       {/* Subtle Geometric Background Pattern */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <svg className="w-full h-full" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="register-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#cbd5e1" strokeWidth="0.8" opacity="0.5" />
-              <circle cx="30" cy="30" r="1.5" fill="#94a3b8" opacity="0.3" />
+              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#60a5fa" strokeWidth="0.8" opacity="0.28" />
+              <circle cx="30" cy="30" r="1.5" fill="#93c5fd" opacity="0.25" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#register-grid)" />
@@ -98,31 +101,35 @@ export default function Register() {
 
       {/* Main Container */}
       <div className="max-w-4xl w-full mx-auto px-4 sm:px-6 py-8 relative z-10">
-        
+
         {/* TOP CENTER: Logo (h-16) */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-block transition-transform hover:scale-105">
-            <img 
-              src="/P4logo.jpeg" 
-              alt="P4 Global Market" 
-              className="h-16 w-auto object-contain mx-auto" 
+            <img
+              src="/P4logo.png"
+              alt="P4 Global Market"
+              className="h-20 w-auto object-contain mx-auto drop-shadow-[0_0_18px_rgba(96,165,250,0.3)]"
             />
           </Link>
         </div>
 
+        <div className="flex justify-center mb-5">
+          <LanguageSwitcher className="rounded-lg border border-blue-300/30 bg-[#0b1533]/80 px-3 py-2 text-blue-100" />
+        </div>
+
         {/* MAIN CARD (white, shadow, rounded, max-w-3xl, mx-auto, p-8) */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-xl max-w-3xl mx-auto">
-          
+        <div className="bg-gradient-to-br from-[#111d43]/95 via-[#0b1533]/95 to-[#050a1c]/95 rounded-3xl p-6 sm:p-10 border border-blue-300/20 shadow-2xl shadow-blue-950/40 max-w-3xl mx-auto">
+
           {/* Risk Warning at top of card */}
           <div className="border-b border-slate-200 pb-4 mb-6">
-            <p className="text-[11px] text-slate-500 leading-relaxed font-normal">
+            <p className="text-[11px] text-slate-300 leading-relaxed font-normal">
               CFDs are complex instruments requiring specialized understanding. Volatile fluctuations can render them valueless, with a likelihood of loss exceeding potential profits. Positions carry a risk of unlimited losses greater than your deposited capital with this broker. You should consider your financial position carefully before investing.
             </p>
           </div>
 
           {/* "Create your Account" heading */}
-          <h1 className="text-3xl font-light text-slate-800 mb-6">
-            Create your Account
+          <h1 className="text-3xl font-light text-white mb-6">
+            {t('auth.register')}
           </h1>
 
           {registrationSuccess ? (
@@ -131,13 +138,13 @@ export default function Register() {
                 <CheckCircle2 className="w-9 h-9" />
               </div>
               <h2 className="text-2xl font-bold text-slate-900">Application Submitted!</h2>
-              <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+              <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
                 Thank you for choosing P4 Global Market. Your MT5 trading account credentials and email verification link have been dispatched.
               </p>
               <div className="pt-4">
                 <Link
                   to="/login"
-                  className="inline-block px-8 py-3.5 rounded-full bg-[#3f51b5] hover:bg-[#303f9f] text-white font-bold text-sm shadow-md transition-all cursor-pointer"
+                  className="inline-block px-8 py-3.5 rounded-full bg-gradient-to-r from-[#132c68] via-[#173f91] to-[#1d4ed8] hover:from-[#1d4ed8] hover:to-[#2563eb] text-white font-bold text-sm shadow-md transition-all cursor-pointer"
                 >
                   Proceed to Login
                 </Link>
@@ -150,10 +157,10 @@ export default function Register() {
                   {serverError}
                 </div>
               )}
-              
+
               {/* "I want to register as" label + Dropdown */}
               <div>
-                <label className="block text-xs text-slate-600 mb-1.5 font-medium">
+                <label className="block text-xs text-slate-200 mb-1.5 font-medium">
                   I want to register as
                 </label>
                 <select
@@ -169,8 +176,8 @@ export default function Register() {
               {/* First Name & Last Name inputs */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs text-slate-600 mb-1.5 font-medium">
-                    First Name *
+                  <label className="block text-xs text-slate-200 mb-1.5 font-medium">
+                    {t('auth.first_name')} *
                   </label>
                   <input
                     type="text"
@@ -186,8 +193,8 @@ export default function Register() {
                 </div>
 
                 <div>
-                  <label className="block text-xs text-slate-600 mb-1.5 font-medium">
-                    Last Name *
+                  <label className="block text-xs text-slate-200 mb-1.5 font-medium">
+                    {t('auth.last_name')} *
                   </label>
                   <input
                     type="text"
@@ -205,7 +212,7 @@ export default function Register() {
 
               {/* Date of Birth row (3 inputs side by side: YYYY, MM, DD) */}
               <div>
-                <label className="block text-xs text-slate-600 mb-1.5 font-medium">
+                <label className="block text-xs text-slate-200 mb-1.5 font-medium">
                   Date of Birth *
                 </label>
                 <div className="grid grid-cols-3 gap-3">
@@ -263,7 +270,7 @@ export default function Register() {
 
               {/* TASK 1: Country of Residence Custom Dropdown */}
               <div>
-                <label className="block text-xs text-slate-600 mb-1.5 font-medium">
+                <label className="block text-xs text-slate-200 mb-1.5 font-medium">
                   Country Of Residence *
                 </label>
                 <CountrySelect
@@ -279,8 +286,8 @@ export default function Register() {
 
               {/* TASK 2: Phone Number with Country Code Dropdown */}
               <div>
-                <label className="block text-xs text-slate-600 mb-1.5 font-medium">
-                  Phone Number *
+                <label className="block text-xs text-slate-200 mb-1.5 font-medium">
+                  {t('auth.phone')} *
                 </label>
                 <PhoneCountrySelect
                   countryCode={countryCodeValue}
@@ -301,8 +308,8 @@ export default function Register() {
 
               {/* "Email" input */}
               <div>
-                <label className="block text-xs text-slate-600 mb-1.5 font-medium">
-                  Email Address *
+                <label className="block text-xs text-slate-200 mb-1.5 font-medium">
+                  {t('auth.email')} *
                 </label>
                 <input
                   type="email"
@@ -325,8 +332,8 @@ export default function Register() {
 
               {/* "Password" input with eye toggle icon */}
               <div>
-                <label className="block text-xs text-slate-600 mb-1.5 font-medium">
-                  Password *
+                <label className="block text-xs text-slate-200 mb-1.5 font-medium">
+                  {t('auth.password')} *
                 </label>
                 <div className="relative">
                   <input
@@ -348,7 +355,7 @@ export default function Register() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-3.5 text-slate-400 hover:text-slate-700 p-0.5 cursor-pointer"
+                    className="absolute right-3 top-3.5 text-slate-400 hover:text-slate-200 p-0.5 cursor-pointer"
                     aria-label={showPassword ? 'Hide password' : 'Show password'}
                   >
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -378,8 +385,8 @@ export default function Register() {
 
               {/* "Repeat Password" input with eye toggle icon */}
               <div>
-                <label className="block text-xs text-slate-600 mb-1.5 font-medium">
-                  Repeat Password *
+                <label className="block text-xs text-slate-200 mb-1.5 font-medium">
+                  {t('auth.confirm_password')} *
                 </label>
                 <div className="relative">
                   <input
@@ -396,7 +403,7 @@ export default function Register() {
                   <button
                     type="button"
                     onClick={() => setShowRepeatPassword(!showRepeatPassword)}
-                    className="absolute right-3 top-3.5 text-slate-400 hover:text-slate-700 p-0.5 cursor-pointer"
+                    className="absolute right-3 top-3.5 text-slate-400 hover:text-slate-200 p-0.5 cursor-pointer"
                     aria-label={showRepeatPassword ? 'Hide password' : 'Show password'}
                   >
                     {showRepeatPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -409,7 +416,7 @@ export default function Register() {
 
               {/* Checkbox 1: Legal documents agreement with blue links */}
               <div className="pt-2">
-                <label className="flex items-start gap-2.5 cursor-pointer text-xs text-slate-600 leading-normal font-medium">
+                <label className="flex items-start gap-2.5 cursor-pointer text-xs text-slate-200 leading-normal font-medium">
                   <input
                     type="checkbox"
                     {...register('agreedLegal', { required: 'You must accept the legal agreements to open an account' })}
@@ -429,7 +436,7 @@ export default function Register() {
 
               {/* Checkbox 2: Marketing communication */}
               <div>
-                <label className="flex items-start gap-2.5 cursor-pointer text-xs text-slate-600 leading-normal font-medium">
+                <label className="flex items-start gap-2.5 cursor-pointer text-xs text-slate-200 leading-normal font-medium">
                   <input
                     type="checkbox"
                     {...register('agreedMarketing')}
@@ -446,16 +453,16 @@ export default function Register() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto px-14 py-3.5 rounded-full bg-[#3f51b5] hover:bg-[#303f9f] text-white font-bold text-sm tracking-wide shadow-md transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer disabled:opacity-50"
+                  className="w-full sm:w-auto px-14 py-3.5 rounded-full bg-gradient-to-r from-[#132c68] via-[#173f91] to-[#1d4ed8] hover:from-[#1d4ed8] hover:to-[#2563eb] text-white font-bold text-sm tracking-wide shadow-md transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer disabled:opacity-50"
                 >
                   {isSubmitting ? 'Submitting...' : 'Continue'}
                 </button>
               </div>
 
               {/* Already have an account link */}
-              <div className="pt-4 border-t border-slate-100 text-center">
-                <p className="text-xs text-slate-500 font-medium">
-                  Already have an account?{' '}
+              <div className="pt-4 border-t border-blue-200/20 text-center">
+                <p className="text-xs text-slate-300 font-medium">
+                  {t('auth.has_account')}{' '}
                   <Link to="/login" className="text-blue-600 font-bold hover:underline">
                     Log in here
                   </Link>
@@ -470,9 +477,9 @@ export default function Register() {
       </div>
 
       {/* BOTTOM: Same Risk Warning text as Login page */}
-      <footer className="w-full border-t border-slate-200 bg-white/70 py-6 px-4 mt-8 relative z-10">
+      <footer className="w-full border-t border-slate-200 bg-[#050816]/70 py-6 px-4 mt-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-[11px] text-slate-500 leading-relaxed font-normal">
+          <p className="text-[11px] text-slate-300 leading-relaxed font-normal">
             Risk Warning – CFDs are complex financial instruments requiring advanced knowledge and understanding. They are subject to extreme price fluctuations that may render them valueless. Engaging in the buying and selling of these instruments carries an inherent likelihood of incurring losses that exceed potential profits. Transactions can result in unlimited losses greater than the amount deposited with this broker. You should consider your financial position carefully before investing.
           </p>
         </div>

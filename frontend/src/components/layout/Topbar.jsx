@@ -5,9 +5,11 @@ import { LanguageSwitcher } from '../ui/LanguageSwitcher';
 import { useAuthStore } from '../../stores/authStore';
 
 import { BRAND } from '../../config/brand';
+import { useTranslation } from 'react-i18next';
 
 export function Topbar({ onMenuToggle }) {
   const { user, logout } = useAuthStore();
+  const { t } = useTranslation();
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   
   const profile = user?.profile || {};
@@ -33,7 +35,7 @@ export function Topbar({ onMenuToggle }) {
             className="hidden sm:flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 border-r border-slate-200 pr-6"
           >
             <Send size={16} />
-            <span>Contact your account manager</span>
+            <span>{t('portal.contact_manager')}</span>
           </button>
 
           <div className="hidden sm:flex items-center gap-2 text-xs text-slate-600 font-medium border-r border-slate-200 pr-6">
@@ -49,7 +51,7 @@ export function Topbar({ onMenuToggle }) {
             className="hidden sm:flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors"
           >
             <MessageSquare size={16} />
-            <span className="hidden md:inline">Messages</span>
+            <span className="hidden md:inline">{t('portal.messages')}</span>
           </Link>
 
           <button 
@@ -57,7 +59,7 @@ export function Topbar({ onMenuToggle }) {
             className="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900 border-l border-slate-200 pl-4 sm:pl-6"
           >
             <LogOut size={16} />
-            <span className="hidden md:inline">Log out</span>
+            <span className="hidden md:inline">{t('portal.logout')}</span>
           </button>
         </div>
       </header>

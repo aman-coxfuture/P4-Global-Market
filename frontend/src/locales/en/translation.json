@@ -12,6 +12,36 @@
     "pamm": "PAMM",
     "ib_dashboard": "IB Dashboard",
     "ib_statistics": "IB Statistics",
-    "ib_marketing": "IB Marketing"
+    "ib_marketing": "IB Marketing",
+    "deposit_funds": "Deposit Funds",
+    "withdraw_funds": "Withdraw Funds",
+    "transfer_funds": "Transfer Funds",
+    "transactions_history": "Transactions History",
+    "payment_details": "Payment Details"
+  },
+  "language": { "select": "Select language" },
+  "auth": {
+    "login": "Login", "register": "Create your account", "email": "Email Address",
+    "password": "Password", "remember": "Remember me", "forgot": "Forgot Password?",
+    "register_now": "Register Now", "no_account": "Don't have an account?",
+    "has_account": "Already have an account?", "back_home": "Back to Homepage",
+    "welcome": "Welcome Back!", "logging_in": "Logging In...",
+    "first_name": "First Name", "last_name": "Last Name", "phone": "Phone Number",
+    "country": "Country of Residence", "confirm_password": "Confirm Password",
+    "agree": "I agree to the Terms and Conditions and Privacy Policy"
+  },
+  "portal": {
+    "home": "Home", "trader_menu": "Trader's Menu", "ib_menu": "IB Menu", "contact_manager": "Contact your account manager",
+    "messages": "Messages", "logout": "Log out", "open_demo": "Open Demo Account",
+    "open_live": "Open Live Account", "deposit": "Deposit Funds", "accounts_overview": "Accounts Overview",
+    "upload_documents": "Upload Documents", "agreements": "My Agreements", "reverse_solicitation": "Reverse Solicitation Form",
+    "economic_details": "Economic Profile Details"
+  },
+  "nav": {
+    "group_licences": "GROUP LICENCES:", "p4_prime": "P4 PRIME", "become_partner": "BECOME A PARTNER",
+    "search_placeholder": "Search instruments, accounts, MT5 platform...", "close": "Close",
+    "trading": "TRADING", "accounts": "ACCOUNTS", "loyalty_program": "LOYALTY PROGRAM",
+    "login": "LOGIN", "open_account": "OPEN ACCOUNT", "about_us": "ABOUT US",
+    "tools_resources": "TOOLS & RESOURCES", "partnerships": "PARTNERSHIPS", "promotions": "PROMOTIONS"
   }
 }

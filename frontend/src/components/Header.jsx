@@ -45,17 +45,10 @@ export default function Header() {
 
   // Supported languages
   const languages = [
-    { code: 'en', flag: '🇬🇧', name: 'English', short: 'EN' },
-    { code: 'ar', flag: '🇸🇦', name: 'Arabic', short: 'AR' },
-    { code: 'ja', flag: '🇯🇵', name: 'Japanese', short: 'JA' },
-    { code: 'ko', flag: '🇰🇷', name: 'Korean', short: 'KO' },
-    { code: 'ms', flag: '🇲🇾', name: 'Malay', short: 'MS' },
-    { code: 'pt', flag: '🇧🇷', name: 'Portuguese (Brazil)', short: 'PT' },
-    { code: 'es', flag: '🇪🇸', name: 'Spanish', short: 'ES' },
-    { code: 'zh', flag: '🇨🇳', name: 'Chinese', short: 'ZH' },
-    { code: 'id', flag: '🇮🇩', name: 'Indonesian', short: 'ID' },
-    { code: 'th', flag: '🇹🇭', name: 'Thai', short: 'TH' },
-    { code: 'vi', flag: '🇻🇳', name: 'Vietnamese', short: 'VI' },
+    { code: 'en', name: 'English', short: 'EN' },
+    { code: 'es', name: 'Spanish', short: 'ES' },
+    { code: 'fr', name: 'French', short: 'FR' },
+    { code: 'ar', name: 'Arabic', short: 'AR' },
   ];
 
   const currentLangObj = languages.find((l) => l.code === i18n.language) || languages[0];
@@ -104,7 +97,7 @@ export default function Header() {
                 aria-haspopup="listbox"
                 aria-expanded={languageMenuOpen}
               >
-                <span className="text-xs">{currentLangObj.flag}</span>
+
                 <span className="tracking-wide">{currentLangObj.short}</span>
                 <ChevronDown className={`w-2.5 h-2.5 text-slate-400 transition-transform duration-200 ${languageMenuOpen ? 'rotate-180 text-[#00C853]' : ''}`} />
               </button>
@@ -112,7 +105,7 @@ export default function Header() {
               {languageMenuOpen && (
                 <div className="absolute right-0 rtl:right-auto rtl:left-0 top-full mt-1.5 w-48 bg-[#0b172a]/98 backdrop-blur-xl border border-slate-700/90 rounded-2xl shadow-2xl z-50 py-2 animate-in fade-in zoom-in-95 duration-150">
                   <div className="px-3 py-1 text-[9px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-800 mb-1">
-                    Select Language
+                    {t('language.select', 'Select language')}
                   </div>
                   <div className="max-h-64 overflow-y-auto py-0.5">
                     {languages.map((lang) => {
@@ -128,7 +121,7 @@ export default function Header() {
                             }`}
                         >
                           <div className="flex items-center gap-2">
-                            <span className="text-sm">{lang.flag}</span>
+                            <span className="text-[10px] font-bold">{lang.short}</span>
                             <span>{lang.name}</span>
                           </div>
                           {isSelected && <Check className="w-3.5 h-3.5 text-[#00C853] shrink-0" />}
@@ -636,7 +629,7 @@ export default function Header() {
                         : 'bg-slate-800/80 text-slate-300 hover:text-white'
                       }`}
                   >
-                    <span>{lang.flag}</span>
+                    <span className="font-bold">{lang.short}</span>
                     <span className="truncate">{lang.name}</span>
                   </button>
                 ))}

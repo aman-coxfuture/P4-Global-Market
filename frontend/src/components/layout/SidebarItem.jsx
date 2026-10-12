@@ -18,6 +18,7 @@ export function SidebarItem({ item }) {
   const label = t ? t(item.labelKey, fallbackLabel) : fallbackLabel;
 
   if (item.subItems) {
+    const toggleExpanded = () => setIsExpanded((expanded) => !expanded);
     return (
       <li className="flex flex-col">
         <div
@@ -27,17 +28,24 @@ export function SidebarItem({ item }) {
               : 'border-transparent text-slate-300 hover:text-white hover:bg-[#1a233a]/50'
           }`}
         >
-          <Link 
-            to={item.route || '#'} 
-            onClick={() => { if (!isExpanded) setIsExpanded(true); }}
-            className="flex items-center gap-3 flex-1 focus:outline-none"
-          >
-            <item.icon size={16} className={isActive ? 'text-[#8cc63f]' : ''} />
-            <span className="capitalize">{label}</span>
-          </Link>
+          {item.id === 'funds' ? (
+            <button type="button" onClick={toggleExpanded} className="flex items-center gap-3 flex-1 text-left focus:outline-none">
+              <item.icon size={16} className={isActive ? 'text-[#8cc63f]' : ''} />
+              <span className="capitalize">{label}</span>
+            </button>
+          ) : (
+            <Link
+              to={item.route || '#'}
+              onClick={() => { if (!isExpanded) setIsExpanded(true); }}
+              className="flex items-center gap-3 flex-1 focus:outline-none"
+            >
+              <item.icon size={16} className={isActive ? 'text-[#8cc63f]' : ''} />
+              <span className="capitalize">{label}</span>
+            </Link>
+          )}
           <button 
             type="button"
-            onClick={(e) => { e.stopPropagation(); setIsExpanded(!isExpanded); }}
+            onClick={(e) => { e.stopPropagation(); toggleExpanded(); }}
             className="p-1 -mr-2 text-slate-400 hover:text-white focus:outline-none"
           >
             {isExpanded ? <ChevronDown size={14} className={isActive ? 'text-[#8cc63f]' : ''} /> : <ChevronRight size={14} />}

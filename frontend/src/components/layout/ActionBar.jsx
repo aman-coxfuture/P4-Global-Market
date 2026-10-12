@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Plus, Wallet } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export function ActionBar() {
   const location = useLocation();
+  const { t } = useTranslation();
 
   return (
     <div className="bg-white py-4 px-4 lg:px-6 flex flex-wrap items-center justify-center gap-3 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.1)] z-10 relative">
@@ -15,7 +17,7 @@ export function ActionBar() {
             : 'bg-[#1e2b58] hover:bg-[#152042] text-white'
         }`}
       >
-        <Plus size={14} /> Open Demo Account
+        <Plus size={14} /> {t('portal.open_demo')}
       </Link>
       <Link 
         to="/portal/accounts/open-live" 
@@ -25,7 +27,7 @@ export function ActionBar() {
             : 'bg-[#1e2b58] hover:bg-[#152042] text-white'
         }`}
       >
-        <Plus size={14} /> Open Live Account
+        <Plus size={14} /> {t('portal.open_live')}
       </Link>
       <Link 
         to="/portal/funds/deposit" 
@@ -35,7 +37,7 @@ export function ActionBar() {
             : 'bg-[#1e2b58] hover:bg-[#152042] text-white'
         }`}
       >
-        <Wallet size={14} /> Deposit Funds
+        <Wallet size={14} /> {t('portal.deposit')}
       </Link>
     </div>
   );

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { SidebarItem } from './SidebarItem';
+import { useTranslation } from 'react-i18next';
 
 export function SidebarGroup({ group, userRoles, autoExpanded = false }) {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(autoExpanded);
 
   // Filter items by role
@@ -17,7 +19,7 @@ export function SidebarGroup({ group, userRoles, autoExpanded = false }) {
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <h3 className="text-[10px] font-bold text-[#5e779d] uppercase tracking-wider group-hover:text-white transition-colors">
-          {group.group}
+          {t(group.group === 'IB Menu' ? 'portal.ib_menu' : 'portal.trader_menu', group.group)}
         </h3>
         {isExpanded ? <ChevronDown size={14} className="text-[#5e779d]" /> : <ChevronRight size={14} className="text-[#5e779d]" />}
       </div>

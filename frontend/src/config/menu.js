@@ -13,9 +13,9 @@ export const PORTAL_MENU = [
         route: '/portal/accounts', 
         roles: ['user', 'ib'],
         subItems: [
-          { id: 'open-demo', labelKey: 'Open Demo Account', route: '/portal/accounts/open-demo' },
-          { id: 'open-live', labelKey: 'Open Live Account', route: '/portal/accounts/open-live' },
-          { id: 'accounts-overview', labelKey: 'Accounts Overview', route: '/portal/accounts' }
+          { id: 'open-demo', labelKey: 'portal.open_demo', route: '/portal/accounts/open-demo' },
+          { id: 'open-live', labelKey: 'portal.open_live', route: '/portal/accounts/open-live' },
+          { id: 'accounts-overview', labelKey: 'portal.accounts_overview', route: '/portal/accounts' }
         ]
       },
       { 
@@ -40,12 +40,12 @@ export const PORTAL_MENU = [
         route: '/portal/profile', 
         roles: ['user', 'ib'],
         subItems: [
-          { id: 'profile-main', labelKey: 'Profile', route: '/portal/profile' },
-          { id: 'upload-documents', labelKey: 'Upload Documents', route: '/portal/profile/documents' },
-          { id: 'my-agreements', labelKey: 'My Agreements', route: '/portal/profile/agreements' },
-          { id: 'messages', labelKey: 'Messages', route: '/portal/profile/messages' },
-          { id: 'reverse-solicitation', labelKey: 'Reverse Solicitation Form', route: '/portal/profile/reverse-solicitation' },
-          { id: 'economic-profile', labelKey: 'Economic Profile Details', route: '/portal/profile/economic-details' }
+          { id: 'profile-main', labelKey: 'menu.profile', route: '/portal/profile' },
+          { id: 'upload-documents', labelKey: 'portal.upload_documents', route: '/portal/profile/documents' },
+          { id: 'my-agreements', labelKey: 'portal.agreements', route: '/portal/profile/agreements' },
+          { id: 'messages', labelKey: 'portal.messages', route: '/portal/profile/messages' },
+          { id: 'reverse-solicitation', labelKey: 'portal.reverse_solicitation', route: '/portal/profile/reverse-solicitation' },
+          { id: 'economic-profile', labelKey: 'portal.economic_details', route: '/portal/profile/economic-details' }
         ]
       },
       { id: 'downloads', labelKey: 'menu.downloads', icon: Download, route: '/portal/downloads', roles: ['user', 'ib'] },
