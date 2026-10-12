@@ -1,0 +1,23 @@
+Backend runtime requirements
+============================
+
+This backend is a Node.js application. Its npm dependencies are declared in
+package.json and pinned by package-lock.json; this file records the runtime
+and setup requirements for environments that expect a requirements.txt.
+
+Required software:
+- Node.js 20.19 or newer
+- npm 10 or newer
+- MongoDB database (local or hosted) accessible through MONGODB_URI
+
+Install dependencies from the backend directory:
+  npm ci
+
+Configure environment variables by copying .env.example to .env and setting
+MONGODB_URI, JWT_SECRET, and FRONTEND_URL.
+
+Start the backend from the backend directory:
+  npm start
+
+Development mode with automatic restart:
+  npm run dev
