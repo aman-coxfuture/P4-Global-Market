@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuthStore } from '../stores/authStore';
 import { useForm } from 'react-hook-form';
 import { Eye, EyeOff, CheckCircle2, ShieldCheck, ArrowRight, Check } from 'lucide-react';
 import CountrySelect from '../components/CountrySelect';
@@ -46,14 +47,37 @@ export default function Register() {
   const passwordValue = watch('password', '');
 
   // Password requirement checks for visual feedback
-  const hasMinLength = passwordValue.length >= 6;
+  const hasMinLength = passwordValue.length >= 8;
   const hasLowerCase = /[a-z]/.test(passwordValue);
   const hasUpperCase = /[A-Z]/.test(passwordValue);
   const hasDigit = /[0-9]/.test(passwordValue);
 
-  const onSubmit = (data) => {
-    console.log('Registration data submitted:', data);
-    setRegistrationSuccess(true);
+  const navigate = useNavigate();
+  const { signup, user } = useAuthStore();
+  const [serverError, setServerError] = useState('');
+
+  const onSubmit = async (data) => {
+    setServerError('');
+    const success = await signup(data);
+    if (success) {
+      setRegistrationSuccess(true);
+      const currentUser = useAuthStore.getState().user;
+      setTimeout(() => {
+        if (currentUser?.roles?.includes('admin')) {
+          navigate('/admin');
+        } else {
+          navigate('/portal/loyalty');
+        }
+      }, 3000);
+    } else {
+      setServerError(useAuthStore.getState().error);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const onError = (errors) => {
+    // If react-hook-form validation fails, scroll to top so user sees the red text
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -120,7 +144,12 @@ export default function Register() {
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+            <form onSubmit={handleSubmit(onSubmit, onError)} className="space-y-5">
+              {serverError && (
+                <div className="p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg">
+                  {serverError}
+                </div>
+              )}
               
               {/* "I want to register as" label + Dropdown */}
               <div>
@@ -305,7 +334,7 @@ export default function Register() {
                     placeholder="Create secure password"
                     {...register('password', {
                       required: 'Password is required',
-                      minLength: { value: 6, message: 'Minimum 6 characters' },
+                      minLength: { value: 8, message: 'Minimum 8 characters' },
                       validate: {
                         lower: (v) => /[a-z]/.test(v) || 'Must contain at least 1 lowercase letter',
                         upper: (v) => /[A-Z]/.test(v) || 'Must contain at least 1 uppercase letter',
@@ -330,7 +359,7 @@ export default function Register() {
                 <div className="mt-2.5 p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-500 space-y-1">
                   <div className={`flex items-center gap-1.5 ${hasMinLength ? 'text-emerald-600 font-semibold' : ''}`}>
                     <span className="text-[10px]">•</span>
-                    <span>At least 6 characters long</span>
+                    <span>At least 8 characters long</span>
                   </div>
                   <div className={`flex items-center gap-1.5 ${hasLowerCase ? 'text-emerald-600 font-semibold' : ''}`}>
                     <span className="text-[10px]">•</span>

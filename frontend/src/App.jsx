@@ -14,6 +14,45 @@ import Register from './pages/Register';
 import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import RiskDisclosure from './pages/RiskDisclosure';
+import PortalLayout from './components/layout/PortalLayout';
+import LoyaltyProgram from './features/loyalty/LoyaltyProgram';
+import OpenDemoAccount from './features/accounts/OpenDemoAccount';
+import OpenLiveAccount from './features/accounts/OpenLiveAccount';
+import AccountsOverview from './features/accounts/AccountsOverview';
+import DepositFunds from './features/funds/DepositFunds';
+import WithdrawFunds from './features/funds/WithdrawFunds';
+import TransferFunds from './features/funds/TransferFunds';
+import TransactionsHistory from './features/funds/TransactionsHistory';
+import PaymentDetails from './features/funds/PaymentDetails';
+import SocialTrading from './features/social/SocialTrading';
+import Profile from './features/profile/Profile';
+import UploadDocuments from './features/profile/UploadDocuments';
+import MyAgreements from './features/profile/MyAgreements';
+import Messages from './features/profile/Messages';
+import ReverseSolicitation from './features/profile/ReverseSolicitation';
+import EconomicProfile from './features/profile/EconomicProfile';
+import Downloads from './features/downloads/Downloads';
+import EconomicCalendar from './features/calendar/EconomicCalendar';
+import TradingCalculator from './features/calculator/TradingCalculator';
+import Ebooks from './features/education/Ebooks';
+import VideoCourses from './features/education/VideoCourses';
+import Glossary from './features/education/Glossary';
+import Podcasts from './features/education/Podcasts';
+import Newsfeed from './features/education/Newsfeed';
+import DailyNews from './features/education/DailyNews';
+
+// IB Menu Pages
+import IBDashboard from './features/ib/IBDashboard';
+import IBStatistics from './features/ib/IBStatistics';
+import IBTransactions from './features/ib/IBTransactions';
+import IBDetailedBreakdown from './features/ib/IBDetailedBreakdown';
+import IBTotalBreakdown from './features/ib/IBTotalBreakdown';
+import IBLinks from './features/ib/IBLinks';
+import IBBanners from './features/ib/IBBanners';
+import IBAccountsCommission from './features/ib/IBAccountsCommission';
+import IBClientsCommission from './features/ib/IBClientsCommission';
+
+import UIDemo from './dev/UiDemo';
 
 // Trading Dropdown Pages
 import ForexCFD from './pages/trading/ForexCFD';
@@ -40,6 +79,10 @@ import DynamicLeverage from './pages/accounts/DynamicLeverage';
 import DepositsWithdrawals from './pages/accounts/DepositsWithdrawals';
 
 // Scroll to top helper on navigation
+import { ProtectedRoute, RoleRoute } from './components/auth/ProtectedRoute';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import { useAuthStore } from './stores/authStore';
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -51,6 +94,13 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const { initialize, status } = useAuthStore();
+
+  useEffect(() => { initialize(); }, [initialize]);
+
+  if (status === 'idle' || status === 'loading') {
+    return <div className="min-h-screen bg-slate-50 flex items-center justify-center">Loading...</div>;
+  }
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -103,6 +153,66 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Route>
+
+        {/* Client Portal Layout */}
+        <Route element={<ProtectedRoute />}>
+          <Route element={<PortalLayout />}>
+            <Route path="/portal/loyalty" element={<LoyaltyProgram />} />
+            <Route path="/portal/accounts/open-demo" element={<OpenDemoAccount />} />
+            <Route path="/portal/accounts/open-live" element={<OpenLiveAccount />} />
+            <Route path="/portal/accounts" element={<AccountsOverview />} />
+            
+            {/* Funds Routes */}
+            <Route path="/portal/funds/deposit" element={<DepositFunds />} />
+            <Route path="/portal/funds/withdraw" element={<WithdrawFunds />} />
+            <Route path="/portal/funds/transfer" element={<TransferFunds />} />
+            <Route path="/portal/funds/history" element={<TransactionsHistory />} />
+            <Route path="/portal/funds/payment-details" element={<PaymentDetails />} />
+            
+            {/* Social and Profile Routes */}
+            <Route path="/portal/social" element={<SocialTrading />} />
+            <Route path="/portal/profile" element={<Profile />} />
+            <Route path="/portal/profile/documents" element={<UploadDocuments />} />
+            <Route path="/portal/profile/agreements" element={<MyAgreements />} />
+            <Route path="/portal/profile/messages" element={<Messages />} />
+            <Route path="/portal/profile/reverse-solicitation" element={<ReverseSolicitation />} />
+            <Route path="/portal/profile/economic-details" element={<EconomicProfile />} />
+            
+            {/* Tools Routes */}
+            <Route path="/portal/downloads" element={<Downloads />} />
+            <Route path="/portal/calendar" element={<EconomicCalendar />} />
+            <Route path="/portal/calculator" element={<TradingCalculator />} />
+            
+            {/* Education Routes */}
+            <Route path="/portal/education/ebooks" element={<Ebooks />} />
+            <Route path="/portal/education/video-courses" element={<VideoCourses />} />
+            <Route path="/portal/education/glossary" element={<Glossary />} />
+            <Route path="/portal/education/podcasts" element={<Podcasts />} />
+            <Route path="/portal/education/newsfeed" element={<Newsfeed />} />
+            <Route path="/portal/education/daily-news" element={<DailyNews />} />
+
+            {/* IB Routes */}
+            <Route path="/portal/ib/dashboard" element={<IBDashboard />} />
+            <Route path="/portal/ib/transactions" element={<IBTransactions />} />
+            <Route path="/portal/ib/detailed-breakdown" element={<IBDetailedBreakdown />} />
+            <Route path="/portal/ib/total-breakdown" element={<IBTotalBreakdown />} />
+            <Route path="/portal/ib/statistics" element={<IBStatistics />} />
+            <Route path="/portal/ib/marketing/links" element={<IBLinks />} />
+            <Route path="/portal/ib/marketing/banners" element={<IBBanners />} />
+            <Route path="/portal/ib/reports/accounts-commission" element={<IBAccountsCommission />} />
+            <Route path="/portal/ib/reports/clients-commission" element={<IBClientsCommission />} />
+            
+            {/* Add other portal routes here as they are built */}
+          </Route>
+        </Route>
+        
+        {/* Admin Layout */}
+        <Route element={<RoleRoute roles={['admin']} />}>
+          <Route path="/admin" element={<AdminDashboard />} />
+        </Route>
+
+        {/* Standalone Demo Route (DEV ONLY) */}
+        {import.meta.env.DEV && <Route path="/ui-demo" element={<UIDemo />} />}
       </Routes>
     </BrowserRouter>
   );

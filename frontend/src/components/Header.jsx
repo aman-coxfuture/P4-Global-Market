@@ -228,7 +228,7 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* CENTER: Navigation Menu with Seamless M4Markets Horizontal Dropdowns */}
+          {/* CENTER: Navigation Menu with Seamless P4 Global Market Horizontal Dropdowns */}
           <div className="hidden xl:flex items-center justify-center gap-4 lg:gap-5 2xl:gap-7 mx-auto">
 
             {/* 1. TRADING (3 Columns Side by Side - Left-aligned to open to the right) */}

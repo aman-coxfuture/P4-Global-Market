@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuthStore } from '../stores/authStore';
 import { useForm } from 'react-hook-form';
 import { Eye, EyeOff, Globe, Lock, Mail, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
 
@@ -9,21 +10,35 @@ export default function Login() {
   const [selectedLang, setSelectedLang] = useState({ code: 'EN', flag: '🇬🇧', label: 'English' });
   const [loginSuccess, setLoginSuccess] = useState(false);
 
+  const navigate = useNavigate();
+  const { login, user } = useAuthStore();
+  const [serverError, setServerError] = useState('');
+
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting }
   } = useForm({
-    defaultValues: {
-      email: '',
-      password: '',
-      rememberMe: false
-    }
+    defaultValues: { email: '', password: '', rememberMe: false }
   });
 
-  const onSubmit = (data) => {
-    console.log('Login credentials submitted:', data);
-    setLoginSuccess(true);
+  const onError = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
+  const onSubmit = async (data) => {
+    setServerError('');
+    const success = await login(data);
+    if (success) {
+      setLoginSuccess(true);
+      const currentUser = useAuthStore.getState().user;
+      setTimeout(() => {
+        if (currentUser?.roles?.includes('admin')) {
+          navigate('/admin');
+        } else {
+          navigate('/portal/loyalty');
+        }
+      }, 1000);
+    } else {
+      setServerError(useAuthStore.getState().error);
+    }
   };
 
   const languages = [
@@ -156,7 +171,12 @@ export default function Login() {
                   </Link>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                <form onSubmit={handleSubmit(onSubmit, onError)} className="space-y-5">
+                  {serverError && (
+                    <div className="p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg">
+                      {serverError}
+                    </div>
+                  )}
                   
                   {/* Email input field (full width, border, rounded, p-3) */}
                   <div>
