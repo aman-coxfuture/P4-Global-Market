@@ -396,32 +396,32 @@ export default function Header() {
                       </div>
                       <ul className="space-y-2.5">
                         <li>
-                          <Link to="/platforms#mobile" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
+                          <Link to="/tools/mobile-app" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
                             {t('dropdowns.p4_mobile_app', 'P4 MOBILE APP')}
                           </Link>
                         </li>
                         <li>
-                          <Link to="/education#social-trading" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
+                          <Link to="/tools/social-trading" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
                             {t('dropdowns.social_trading', 'SOCIAL TRADING')}
                           </Link>
                         </li>
                         <li>
-                          <Link to="/education#calendar" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
+                          <Link to="/tools/economic-calendar" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
                             {t('dropdowns.economic_calendar', 'ECONOMIC CALENDAR')}
                           </Link>
                         </li>
                         <li>
-                          <Link to="/education#calculator" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
+                          <Link to="/tools/forex-calculator" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
                             {t('dropdowns.forex_calculator', 'FOREX CALCULATOR')}
                           </Link>
                         </li>
                         <li>
-                          <Link to="/education" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
+                          <Link to="/tools/education" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
                             {t('dropdowns.education', 'EDUCATION')}
                           </Link>
                         </li>
                         <li>
-                          <Link to="/about#safety" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
+                          <Link to="/tools/fraud-prevention" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
                             {t('dropdowns.fraud_prevention', 'FRAUD PREVENTION')}
                           </Link>
                         </li>
@@ -435,32 +435,32 @@ export default function Header() {
                       </div>
                       <ul className="space-y-2.5">
                         <li>
-                          <Link to="/education#news" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
+                          <Link to="/resources/daily-news" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
                             {t('dropdowns.daily_news', 'DAILY NEWS')}
                           </Link>
                         </li>
                         <li>
-                          <Link to="/education#podcasts" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
+                          <Link to="/resources/podcasts" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
                             {t('dropdowns.podcasts', 'PODCASTS')}
                           </Link>
                         </li>
                         <li>
-                          <Link to="/education#newsfeed" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
+                          <Link to="/resources/newsfeed" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
                             {t('dropdowns.newsfeed', 'NEWSFEED')}
                           </Link>
                         </li>
                         <li>
-                          <Link to="/education#ebooks" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
+                          <Link to="/resources/trading-ebooks" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
                             {t('dropdowns.trading_ebooks', 'TRADING EBOOKS')}
                           </Link>
                         </li>
                         <li>
-                          <Link to="/education#glossary" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
+                          <Link to="/resources/glossary" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
                             {t('dropdowns.glossary', 'GLOSSARY')}
                           </Link>
                         </li>
                         <li>
-                          <Link to="/education#videos" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
+                          <Link to="/resources/video-courses" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors block whitespace-nowrap">
                             {t('dropdowns.video_courses', 'VIDEO COURSES')}
                           </Link>
                         </li>
@@ -475,7 +475,7 @@ export default function Header() {
             {/* 4. PARTNERSHIPS (Single Horizontal Row) */}
             <div className="relative group py-2">
               <Link
-                to="/contact"
+                to="/partnerships/introducing-brokers"
                 className="text-xs font-bold uppercase tracking-wider text-white group-hover:text-[#00C853] transition-colors flex items-center gap-1 py-1 whitespace-nowrap"
               >
                 <span>{t('nav.partnerships', 'PARTNERSHIPS')}</span>
@@ -485,10 +485,10 @@ export default function Header() {
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out pointer-events-none group-hover:pointer-events-auto">
                 <div className="bg-[#1a2332]/95 backdrop-blur-md border border-slate-700/80 rounded-2xl shadow-2xl px-8 py-6 text-white max-w-[90vw] whitespace-nowrap">
                   <div className="flex flex-row gap-12 items-center justify-center">
-                    <Link to="/contact#ib" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
+                    <Link to="/partnerships/introducing-brokers" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
                       {t('dropdowns.introducing_brokers', 'INTRODUCING BROKERS')}
                     </Link>
-                    <Link to="/contact#pamm" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
+                    <Link to="/partnerships/mam-pamm" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
                       {t('dropdowns.mam_pamm', 'MAM/PAMM')}
                     </Link>
                   </div>
@@ -499,7 +499,7 @@ export default function Header() {
             {/* 5. PROMOTIONS (Single Horizontal Row) */}
             <div className="relative group py-2">
               <Link
-                to="/accounts#promotions"
+                to="/promotions/all-promotions"
                 className="text-xs font-bold uppercase tracking-wider text-white group-hover:text-[#00C853] transition-colors flex items-center gap-1 py-1 whitespace-nowrap"
               >
                 <span>{t('nav.promotions', 'PROMOTIONS')}</span>
@@ -509,13 +509,13 @@ export default function Header() {
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out pointer-events-none group-hover:pointer-events-auto">
                 <div className="bg-[#1a2332]/95 backdrop-blur-md border border-slate-700/80 rounded-2xl shadow-2xl px-8 py-6 text-white max-w-[90vw] whitespace-nowrap">
                   <div className="flex flex-row gap-12 items-center justify-center">
-                    <Link to="/accounts#promotions" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
+                    <Link to="/promotions/all-promotions" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
                       {t('dropdowns.all_promotions', 'ALL PROMOTIONS')}
                     </Link>
-                    <Link to="/accounts#credit-bonus" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
+                    <Link to="/promotions/credit-bonus" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
                       {t('dropdowns.credit_bonus', 'CREDIT BONUS')}
                     </Link>
-                    <Link to="/accounts#refer-a-friend" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
+                    <Link to="/promotions/refer-a-friend" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
                       {t('dropdowns.refer_a_friend', 'REFER A FRIEND')}
                     </Link>
                   </div>
@@ -540,22 +540,22 @@ export default function Header() {
                     <Link to="/about" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
                       {t('dropdowns.about_p4', 'ABOUT P4 GLOBAL MARKET')}
                     </Link>
-                    <Link to="/about#safety" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
+                    <Link to="/about/licenses" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
                       {t('dropdowns.licenses', 'LICENSES')}
                     </Link>
-                    <Link to="/terms" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
+                    <Link to="/about/legal-documents" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
                       {t('dropdowns.legal_documents', 'LEGAL DOCUMENTS')}
                     </Link>
-                    <Link to="/about#news" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
+                    <Link to="/about/news" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
                       {t('dropdowns.news', 'NEWS')}
                     </Link>
-                    <Link to="/about#careers" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
+                    <Link to="/about/careers" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
                       {t('dropdowns.careers', 'CAREERS')}
                     </Link>
-                    <Link to="/contact" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
+                    <Link to="/about/contact" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
                       {t('dropdowns.contact_us', 'CONTACT US')}
                     </Link>
-                    <Link to="/contact#support" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
+                    <Link to="/about/support" className="text-sm font-semibold uppercase tracking-wide text-white hover:text-[#00C853] transition-colors whitespace-nowrap">
                       {t('dropdowns.support_center', 'SUPPORT CENTER')}
                     </Link>
                   </div>
@@ -726,23 +726,23 @@ export default function Header() {
                     <div className="space-y-1">
                       <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{t('dropdowns.tools', 'TOOLS')}</div>
                       <div className="pl-2 space-y-1">
-                        <Link to="/platforms#mobile" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.p4_mobile_app', 'P4 MOBILE APP')}</Link>
-                        <Link to="/education#social-trading" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.social_trading', 'SOCIAL TRADING')}</Link>
-                        <Link to="/education#calendar" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.economic_calendar', 'ECONOMIC CALENDAR')}</Link>
-                        <Link to="/education#calculator" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.forex_calculator', 'FOREX CALCULATOR')}</Link>
-                        <Link to="/education" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.education', 'EDUCATION')}</Link>
-                        <Link to="/about#safety" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.fraud_prevention', 'FRAUD PREVENTION')}</Link>
+                        <Link to="/tools/mobile-app" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.p4_mobile_app', 'P4 MOBILE APP')}</Link>
+                        <Link to="/tools/social-trading" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.social_trading', 'SOCIAL TRADING')}</Link>
+                        <Link to="/tools/economic-calendar" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.economic_calendar', 'ECONOMIC CALENDAR')}</Link>
+                        <Link to="/tools/forex-calculator" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.forex_calculator', 'FOREX CALCULATOR')}</Link>
+                        <Link to="/tools/education" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.education', 'EDUCATION')}</Link>
+                        <Link to="/tools/fraud-prevention" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.fraud_prevention', 'FRAUD PREVENTION')}</Link>
                       </div>
                     </div>
                     <div className="space-y-1">
                       <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{t('dropdowns.resources', 'RESOURCES')}</div>
                       <div className="pl-2 space-y-1">
-                        <Link to="/education#news" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.daily_news', 'DAILY NEWS')}</Link>
-                        <Link to="/education#podcasts" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.podcasts', 'PODCASTS')}</Link>
-                        <Link to="/education#newsfeed" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.newsfeed', 'NEWSFEED')}</Link>
-                        <Link to="/education#ebooks" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.trading_ebooks', 'TRADING EBOOKS')}</Link>
-                        <Link to="/education#glossary" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.glossary', 'GLOSSARY')}</Link>
-                        <Link to="/education#videos" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.video_courses', 'VIDEO COURSES')}</Link>
+                        <Link to="/resources/daily-news" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.daily_news', 'DAILY NEWS')}</Link>
+                        <Link to="/resources/podcasts" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.podcasts', 'PODCASTS')}</Link>
+                        <Link to="/resources/newsfeed" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.newsfeed', 'NEWSFEED')}</Link>
+                        <Link to="/resources/trading-ebooks" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.trading_ebooks', 'TRADING EBOOKS')}</Link>
+                        <Link to="/resources/glossary" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.glossary', 'GLOSSARY')}</Link>
+                        <Link to="/resources/video-courses" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-0.5">{t('dropdowns.video_courses', 'VIDEO COURSES')}</Link>
                       </div>
                     </div>
                   </div>
@@ -752,7 +752,7 @@ export default function Header() {
               {/* PARTNERSHIPS */}
               <div className="py-1 border-b border-slate-800/50">
                 <div className="flex items-center justify-between">
-                  <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 px-2 rounded-lg text-xs font-bold uppercase tracking-wider text-white hover:bg-slate-800 hover:text-[#00C853]">
+                  <Link to="/partnerships/introducing-brokers" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 px-2 rounded-lg text-xs font-bold uppercase tracking-wider text-white hover:bg-slate-800 hover:text-[#00C853]">
                     {t('nav.partnerships', 'PARTNERSHIPS')}
                   </Link>
                   <button type="button" onClick={() => setActiveMobileDropdown(activeMobileDropdown === 'PARTNERSHIPS' ? null : 'PARTNERSHIPS')} className="p-1.5 text-slate-400 hover:text-white">
@@ -761,8 +761,8 @@ export default function Header() {
                 </div>
                 {activeMobileDropdown === 'PARTNERSHIPS' && (
                   <div className="pl-3 pr-2 py-2 space-y-1 bg-[#1a2332]/80 rounded-xl mt-1.5 border-l-2 border-[#00C853]">
-                    <Link to="/contact#ib" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.introducing_brokers', 'INTRODUCING BROKERS')}</Link>
-                    <Link to="/contact#pamm" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.mam_pamm', 'MAM/PAMM')}</Link>
+                    <Link to="/partnerships/introducing-brokers" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.introducing_brokers', 'INTRODUCING BROKERS')}</Link>
+                    <Link to="/partnerships/mam-pamm" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.mam_pamm', 'MAM/PAMM')}</Link>
                   </div>
                 )}
               </div>
@@ -770,7 +770,7 @@ export default function Header() {
               {/* PROMOTIONS */}
               <div className="py-1 border-b border-slate-800/50">
                 <div className="flex items-center justify-between">
-                  <Link to="/accounts#promotions" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 px-2 rounded-lg text-xs font-bold uppercase tracking-wider text-white hover:bg-slate-800 hover:text-[#00C853]">
+                  <Link to="/promotions/all-promotions" onClick={() => setMobileMenuOpen(false)} className="block py-1.5 px-2 rounded-lg text-xs font-bold uppercase tracking-wider text-white hover:bg-slate-800 hover:text-[#00C853]">
                     {t('nav.promotions', 'PROMOTIONS')}
                   </Link>
                   <button type="button" onClick={() => setActiveMobileDropdown(activeMobileDropdown === 'PROMOTIONS' ? null : 'PROMOTIONS')} className="p-1.5 text-slate-400 hover:text-white">
@@ -779,9 +779,9 @@ export default function Header() {
                 </div>
                 {activeMobileDropdown === 'PROMOTIONS' && (
                   <div className="pl-3 pr-2 py-2 space-y-1 bg-[#1a2332]/80 rounded-xl mt-1.5 border-l-2 border-[#00C853]">
-                    <Link to="/accounts#promotions" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.all_promotions', 'ALL PROMOTIONS')}</Link>
-                    <Link to="/accounts#credit-bonus" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.credit_bonus', 'CREDIT BONUS')}</Link>
-                    <Link to="/accounts#refer-a-friend" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.refer_a_friend', 'REFER A FRIEND')}</Link>
+                    <Link to="/promotions/all-promotions" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.all_promotions', 'ALL PROMOTIONS')}</Link>
+                    <Link to="/promotions/credit-bonus" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.credit_bonus', 'CREDIT BONUS')}</Link>
+                    <Link to="/promotions/refer-a-friend" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.refer_a_friend', 'REFER A FRIEND')}</Link>
                   </div>
                 )}
               </div>
@@ -799,12 +799,12 @@ export default function Header() {
                 {activeMobileDropdown === 'ABOUT' && (
                   <div className="pl-3 pr-2 py-2 space-y-1 bg-[#1a2332]/80 rounded-xl mt-1.5 border-l-2 border-[#00C853]">
                     <Link to="/about" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.about_p4', 'ABOUT P4 GLOBAL MARKET')}</Link>
-                    <Link to="/about#safety" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.licenses', 'LICENSES')}</Link>
-                    <Link to="/terms" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.legal_documents', 'LEGAL DOCUMENTS')}</Link>
-                    <Link to="/about#news" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.news', 'NEWS')}</Link>
-                    <Link to="/about#careers" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.careers', 'CAREERS')}</Link>
-                    <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.contact_us', 'CONTACT US')}</Link>
-                    <Link to="/contact#support" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.support_center', 'SUPPORT CENTER')}</Link>
+                    <Link to="/about/licenses" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.licenses', 'LICENSES')}</Link>
+                    <Link to="/about/legal-documents" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.legal_documents', 'LEGAL DOCUMENTS')}</Link>
+                    <Link to="/about/news" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.news', 'NEWS')}</Link>
+                    <Link to="/about/careers" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.careers', 'CAREERS')}</Link>
+                    <Link to="/about/contact" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.contact_us', 'CONTACT US')}</Link>
+                    <Link to="/about/support" onClick={() => setMobileMenuOpen(false)} className="block text-xs font-medium text-slate-300 hover:text-[#00C853] py-1">{t('dropdowns.support_center', 'SUPPORT CENTER')}</Link>
                   </div>
                 )}
               </div>
