@@ -7,8 +7,14 @@ import Trading from './pages/Trading';
 import Platforms from './pages/Platforms';
 import Accounts from './pages/Accounts';
 import Education from './pages/Education';
-import About from './pages/About';
-import Contact from './pages/Contact';
+// About Us Dropdown Pages
+import About from './pages/about/About';
+import Licenses from './pages/about/Licenses';
+import LegalDocuments from './pages/about/LegalDocuments';
+import News from './pages/about/News';
+import Careers from './pages/about/Careers';
+import Contact from './pages/about/Contact';
+import SupportCenter from './pages/about/SupportCenter';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Terms from './pages/Terms';
@@ -78,6 +84,31 @@ import DemoAccount from './pages/accounts/DemoAccount';
 import DynamicLeverage from './pages/accounts/DynamicLeverage';
 import DepositsWithdrawals from './pages/accounts/DepositsWithdrawals';
 
+// Tools Dropdown Pages
+import MobileApp from './pages/tools/MobileApp';
+import SocialTradingPage from './pages/tools/SocialTrading';
+import EconomicCalendarPage from './pages/tools/EconomicCalendar';
+import ForexCalculator from './pages/tools/ForexCalculator';
+import ToolsEducation from './pages/tools/Education';
+import FraudPrevention from './pages/tools/FraudPrevention';
+
+// Resources Dropdown Pages
+import DailyNewsPage from './pages/resources/DailyNews';
+import PodcastsPage from './pages/resources/Podcasts';
+import NewsfeedPage from './pages/resources/Newsfeed';
+import TradingEbooks from './pages/resources/TradingEbooks';
+import GlossaryPage from './pages/resources/Glossary';
+import VideoCoursesPage from './pages/resources/VideoCourses';
+
+// Partnerships Dropdown Pages
+import IntroducingBrokers from './pages/partnerships/IntroducingBrokers';
+import MAMPAMM from './pages/partnerships/MAMPAMM';
+
+// Promotions Dropdown Pages
+import AllPromotions from './pages/promotions/AllPromotions';
+import CreditBonus from './pages/promotions/CreditBonus';
+import ReferAFriend from './pages/promotions/ReferAFriend';
+
 // Scroll to top helper on navigation
 import { ProtectedRoute, RoleRoute } from './components/auth/ProtectedRoute';
 import AdminDashboard from './pages/admin/AdminDashboard';
@@ -107,8 +138,15 @@ export default function App() {
           <Route path="/trading" element={<Trading />} />
           <Route path="/platforms" element={<Platforms />} />
           <Route path="/accounts" element={<Accounts />} />
-          <Route path="/education" element={<Education />} />
+          <Route path="/education" element={<ToolsEducation />} />
+          {/* About Us Routes */}
           <Route path="/about" element={<About />} />
+          <Route path="/about/licenses" element={<Licenses />} />
+          <Route path="/about/legal-documents" element={<LegalDocuments />} />
+          <Route path="/about/news" element={<News />} />
+          <Route path="/about/careers" element={<Careers />} />
+          <Route path="/about/contact" element={<Contact />} />
+          <Route path="/about/support" element={<SupportCenter />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
@@ -139,6 +177,31 @@ export default function App() {
           <Route path="/accounts/demo-account" element={<DemoAccount />} />
           <Route path="/accounts/dynamic-leverage-account" element={<DynamicLeverage />} />
           <Route path="/accounts/deposits-withdrawals" element={<DepositsWithdrawals />} />
+
+          {/* Tools Routes */}
+          <Route path="/tools/mobile-app" element={<MobileApp />} />
+          <Route path="/tools/social-trading" element={<SocialTradingPage />} />
+          <Route path="/tools/economic-calendar" element={<EconomicCalendarPage />} />
+          <Route path="/tools/forex-calculator" element={<ForexCalculator />} />
+          <Route path="/tools/education" element={<ToolsEducation />} />
+          <Route path="/tools/fraud-prevention" element={<FraudPrevention />} />
+
+          {/* Resources Routes */}
+          <Route path="/resources/daily-news" element={<DailyNewsPage />} />
+          <Route path="/resources/podcasts" element={<PodcastsPage />} />
+          <Route path="/resources/newsfeed" element={<NewsfeedPage />} />
+          <Route path="/resources/trading-ebooks" element={<TradingEbooks />} />
+          <Route path="/resources/glossary" element={<GlossaryPage />} />
+          <Route path="/resources/video-courses" element={<VideoCoursesPage />} />
+
+          {/* Partnerships Routes */}
+          <Route path="/partnerships/introducing-brokers" element={<IntroducingBrokers />} />
+          <Route path="/partnerships/mam-pamm" element={<MAMPAMM />} />
+
+          {/* Promotions Routes */}
+          <Route path="/promotions/all-promotions" element={<AllPromotions />} />
+          <Route path="/promotions/credit-bonus" element={<CreditBonus />} />
+          <Route path="/promotions/refer-a-friend" element={<ReferAFriend />} />
 
           {/* Fallback route */}
           <Route path="*" element={<Home />} />
